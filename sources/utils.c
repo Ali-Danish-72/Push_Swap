@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:47:55 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/08 21:53:41 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/11/12 06:55:39 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,46 +71,22 @@ void	list_size(t_stack *stack, int measure_a, int measure_b)
 	if (measure_a)
 	{
 		store = stack->a;
-		while (store && (!list_size++ || store != stack->a))
+		while (store && (!list_size || store != stack->a))
+		{
+			store->index = ++list_size;
 			store = store->next;
+		}
 		stack->size_a = list_size;
-		if (list_size)
-			stack->size_a--;
 	}
 	if (measure_b)
 	{
 		store = stack->b;
-		while (store && (!list_size++ || store != stack->b))
+		while (store && (!list_size || store != stack->b))
+		{
+			store->index = ++list_size;
 			store = store->next;
+		}
 		stack->size_b = list_size;
-		if (list_size)
-			stack->size_b--;
-	}
-}
-
-void	assign_index(t_stack *stack, char type)
-{
-	t_node	*store;
-	int		index;
-
-	index = 0;
-	if (type == 'a')
-	{
-		store = stack->a;
-		while (index++ < stack->size_a)
-		{
-			store->index = index;
-			store = store->next;
-		}
-	}
-	else if (type == 'b')
-	{
-		store = stack->b;
-		while (index++ < stack->size_b)
-		{
-			store->index = index;
-			store = store->next;
-		}
 	}
 }
 

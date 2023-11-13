@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:43:27 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/08 20:55:40 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/11/12 06:55:39 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ t_stack	parse(int ac, char **av);
 int		validate_integer(char *input, long int *value);
 void	list_size(t_stack *stack, int measure_a, int measure_b);
 
-void	assign_index(t_stack *stack, char type);
 int		check_sort(t_stack	stack, char type);
 void	sort_three(t_stack *a);
 void	sort(t_stack *stack);

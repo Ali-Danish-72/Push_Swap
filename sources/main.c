@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 19:05:55 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/08 18:40:19 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/11/12 06:55:39 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	main(int ac, char **av)
 	// print_stack(stack, 'a');
 	// print_stack(stack, 'a');
 	// print_stack(stack, 'a');
-	// assign_index(&stack, 'a');
 	reverse_rotate(&stack, 'a');
 	rotate(&stack, 'a');
 	swap_values(&stack, 'a');
