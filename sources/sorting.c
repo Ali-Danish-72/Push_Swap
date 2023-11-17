@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:52:43 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/12 07:00:58 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/11/13 19:28:04 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,12 @@ void	sort_three(t_stack *stack)
 		swap_values(stack, 'a');
 		reverse_rotate(stack, 'a');
 	}
+}
+
+void	start_sort(t_stack *stack)
+{
+	push_b(stack);
+	push_b(stack);
+	find_max(stack, 0, 1);
+	
 }

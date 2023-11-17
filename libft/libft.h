@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:21:19 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/03 20:36:31 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/11/13 17:36:12 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 /*****************************************************************************/
-/*								CONVERTERS									 */
+/*								COUNTERS									 */
 /*****************************************************************************/
 size_t	word_counter(char const *src, char delim);
 size_t	word_length(char const *src, char delim);

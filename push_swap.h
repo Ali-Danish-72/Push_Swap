@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:43:27 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/12 06:55:39 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/11/13 19:28:58 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 	int		size_a;
 	int		size_b;
 	int		max_a;
-	int		max_b;
+	t_node	*max_b;
 	int		min_a;
 	int		min_b;
 	int		a_rot;
@@ -81,6 +81,7 @@ void	push_a(t_stack *stack);
 void	push_b(t_stack *stack);
 void	print_stack(t_stack stack, char type);
 
-void	find_max(t_stack *stack, char type);
+void	find_max(t_stack *stack, int find_a, int find_b);
+void	find_min(t_stack *stack, int find_a, int find_b);
 
 #endif
