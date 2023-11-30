@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:32:55 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/08 13:17:00 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/11/30 18:00:30 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack	create_stack(long int *values, long int *store, int num_ctr, int ac)
 	{
 		next_node = (t_node *)malloc(sizeof(t_node));
 		if (!stack.a || !next_node)
-			clear_stack_and_exit(1, store, stack);
+			clear_stack_and_exit(2, store, stack);
 		stack.a->value = *values++;
 		next_node->prev = stack.a;
 		stack.a->next = next_node;
@@ -41,7 +41,7 @@ t_stack	create_stack(long int *values, long int *store, int num_ctr, int ac)
 	return (stack);
 }
 
-void	check_duplicates(int count, long int *values)
+void	check_duplicates_and_sort(int count, long int *values)
 {
 	int	i;
 	int	j;
@@ -58,6 +58,11 @@ void	check_duplicates(int count, long int *values)
 				call_exit(5, values, NULL);
 		}
 	}
+	j = 0;
+	while (j < count - 1 && *(values + j) < *(values + j + 1))
+		j++;
+	if (j == count - 1)
+		call_exit(0, values, NULL);
 }
 
 int	validate_integer(char *input, long int *value)
@@ -66,7 +71,11 @@ int	validate_integer(char *input, long int *value)
 
 	store = input;
 	if (*input == '-')
+	{
 		input++;
+		if (!ft_isdigit(*input))
+			return (3);
+	}
 	while (*input)
 	{
 		if (!ft_isdigit(*input++))
@@ -116,7 +125,7 @@ t_stack	parse(int ac, char **av)
 
 	num_count = (int *)malloc(ac * sizeof(int));
 	if (!num_count)
-		call_exit(2, NULL, NULL);
+		call_exit(1, NULL, NULL);
 	i = -1;
 	num_ctr = 0;
 	while (++i < ac)
@@ -126,9 +135,9 @@ t_stack	parse(int ac, char **av)
 	}
 	values = (long int *)malloc(sizeof(long int) * num_ctr);
 	if (!values)
-		call_exit(2, num_count, NULL);
+		call_exit(1, num_count, NULL);
 	values = splitter(ac, av, num_count, values);
 	free (num_count);
-	check_duplicates(num_ctr, values);
+	check_duplicates_and_sort(num_ctr, values);
 	return (create_stack(values, values, num_ctr, num_ctr - 1));
 }

@@ -3,7 +3,16 @@
 ###############################################################################
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g3
+RESET=\033[0m
+BLACK=\033[1;30m
+RED=\033[1;31m
+GREEN=\033[1;32m
+YELLOW=\033[1;33m
+BLUE=\033[1;34m
+MAGENTA=\033[1;35m
+CYAN=\033[1;36m
+WHITE=\033[1;37m
 OBJS = \
 	$(CHECKERS_OBJS) \
 	$(CONVERTERS_OBJS) \
@@ -33,12 +42,12 @@ CHECKERS_OBJS = $(CHECKERS_SRCS:.c=.o)
 
 $(CHECKERS_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE CHECKER FUNCTIONS!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE CHECKER FUNCTIONS!!!$(RESET)"; \
 	fi
 
 checkers: $(CHECKERS_OBJS)
 	@ar rcs $(NAME) $(CHECKERS_OBJS)
-	@echo "ARCHIVE with checkers functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)checkers functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                  CONVERTERS                                 #
@@ -55,12 +64,12 @@ CONVERTERS_OBJS = $(CONVERTERS_SRCS:.c=.o)
 
 $(CONVERTERS_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE CONVERTERS FUNCTIONS!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE CONVERTERS FUNCTIONS!!!$(RESET)"; \
 	fi
 
 converters: $(CONVERTERS_OBJS)
 	@ar rcs $(NAME) $(CONVERTERS_OBJS)
-	@echo "ARCHIVE with converters functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)converters functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                GET NEXT LINE                                #
@@ -73,12 +82,12 @@ GNL_OBJS = $(GNL_SRCS:.c=.o)
 
 $(GNL_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE GET_NEXT_LINE FUNCTION!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE GET_NEXT_LINE FUNCTION!!!$(RESET)"; \
 	fi
 
 gnl: $(GNL_OBJS)
 	@ar rcs $(NAME) $(GNL_OBJS)
-	@echo "ARCHIVE with the get_next_line function CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)the get_next_line function $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                   LISTS                                     #
@@ -99,12 +108,12 @@ LISTS_OBJS = $(LISTS_SRCS:.c=.o)
 
 $(LISTS_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE LIST FUNCTIONS!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE LIST FUNCTIONS!!!$(RESET)"; \
 	fi
 
 lists: $(LISTS_OBJS)
 	@ar rcs $(NAME) $(LISTS_OBJS)
-	@echo "ARCHIVE with list functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)list functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                   MEMORY                                    #
@@ -123,12 +132,12 @@ MEMORY_OBJS = $(MEMORY_SRCS:.c=.o)
 
 $(MEMORY_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE MEMORY FUNCTIONS!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE MEMORY FUNCTIONS!!!$(RESET)"; \
 	fi
 
 memory: $(MEMORY_OBJS)
 	@ar rcs $(NAME) $(MEMORY_OBJS)
-	@echo "ARCHIVE with memory functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)memory functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                   PRINTF                                    #
@@ -147,12 +156,12 @@ PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
 
 $(PRINTF_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE PRINTF FUNCTION!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE PRINTF FUNCTION!!!$(RESET)"; \
 	fi
 
 printf: $(PRINTF_OBJS)
 	@ar rcs $(NAME) $(PRINTF_OBJS)
-	@echo "ARCHIVE with printf functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)printf functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                   PUT_FD                                    #
@@ -169,12 +178,12 @@ PUT_FD_OBJS = $(PUT_FD_SRCS:.c=.o)
 
 $(PUT_FD_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE PUT_FD FUNCTIONS!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE PUT_FD FUNCTIONS!!!$(RESET)"; \
 	fi
 
 put_fd: $(PUT_FD_OBJS)
 	@ar rcs $(NAME) $(PUT_FD_OBJS)
-	@echo "ARCHIVE with put_fd functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)put_fd functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                  STRINGS                                    #
@@ -200,27 +209,27 @@ STRINGS_OBJS = $(STRINGS_SRCS:.c=.o)
 
 $(STRINGS_OBJS): %.o: %.c
 	@if ! $(CC) $(CFLAGS) -c -I $(HEAD) $< -o $@; then \
-	echo "ERROR WHILE COMPILING THE STRING FUNCTIONS!!!"; \
+	echo "$(YELLOW)ERROR WHILE COMPILING THE STRING FUNCTIONS!!!$(RESET)"; \
 	fi
 
 strings: $(STRINGS_OBJS)
 	@ar rcs $(NAME) $(STRINGS_OBJS)
-	@echo "ARCHIVE with string functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)string functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 ###############################################################################
 #                                  COMPLETE                                   #
 ###############################################################################
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@echo "ARCHIVE with all functions CREATED: libft.a"
+	@echo "$(BLUE)ARCHIVE$(RESET) with $(MAGENTA)all functions $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 
 clean:
 	@rm -f $(OBJS)
-	@echo "OBJECTS DESTROYED"
+	@echo "$(BLUE)OBJECTS $(RED)DESTROYED$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "ARCHIVE DESTROYED: libft.a"
+	@echo "$(BLUE)ARCHIVE $(RED)DESTROYED: $(CYAN)libft.a$(RESET)"
 
 re: fclean all
 
