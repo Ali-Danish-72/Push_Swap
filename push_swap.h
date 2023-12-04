@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:43:27 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/30 19:33:30 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/04 17:12:18 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft/libft.h"
 
 /*****************************************************************************/
-/*									STRUCTS									 */
+/*								DEFINITIONS									 */
 /*****************************************************************************/
 typedef struct s_node
 {
@@ -42,6 +42,8 @@ typedef struct s_stack
 	int				b_rot;
 	int				b_rev_rot;
 }					t_stack;
+
+# define OPERATIONS "sa\n sb\n ss\n ra\n rb\n rr\n rra\n rrb\n rrr\n pa\n pb\n"
 
 /*****************************************************************************/
 /*									PARSING									 */
@@ -93,5 +95,7 @@ void	list_size(t_stack *stack, int measure_a, int measure_b);
 //	3 = Characters other than integers detected.
 //	4 = Parameter is outside the range of an type int.
 //	5 = Duplicate parameters detected.
+//	6 = Wrong output detected from the push_swap program.
+//	7 = Instuctions provided do not sort the numbers.
 
 #endif

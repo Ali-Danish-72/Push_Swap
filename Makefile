@@ -2,6 +2,7 @@
 #                                  VARIABLES                                  #
 ###############################################################################
 NAME = push_swap
+BONUS_NAME = checker
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
 RESET=\033[0m
@@ -30,11 +31,17 @@ OBJS_PATH = $(addprefix $(OBJS_DIR), $(OBJS))
 
 all: $(NAME)
 
+bonus: $(BONUS_NAME)
+
 $(NAME): $(OBJS_DIR) $(OBJS_PATH)
-	@make -s -C $(LIBFT_DIR) converters checkers printf strings > /dev/null
+	@make -s -C $(LIBFT_DIR) converters checkers printf strings
 	@$(CC) $(CFLAGS) $(OBJS_PATH) $(LIBFT) push_swap.c -o $(NAME)
-	@echo "$(BLUE)ARCHIVE $(GREEN)CREATED: $(CYAN)libft.a$(RESET)"
 	@echo "$(BLUE)PROGRAM $(GREEN)CREATED: $(CYAN)push_swap$(RESET)"
+
+$(BONUS_NAME): $(OBJS_DIR) $(OBJS_PATH) 
+	@make -s -C $(LIBFT_DIR) converters checkers printf strings gnl
+	@$(CC) $(CFLAGS) $(OBJS_PATH) $(LIBFT) checker.c -o $(BONUS_NAME)
+	@echo "$(BLUE)PROGRAM $(GREEN)CREATED: $(CYAN)checker$(RESET)"
 
 $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
@@ -50,7 +57,8 @@ clean:
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(BONUS_NAME)
+	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)checker.$(RESET)"
 	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)push_swap.$(RESET)"
 
 re: fclean all
