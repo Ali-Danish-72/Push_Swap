@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:45:15 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/04 14:50:08 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/05 14:56:07 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	call_exit(int status, void *values, void *ptr)
 {
-	if (status == 7)
-		ft_printf("KO\n", 1);
+	if (status == 8)
+		ft_printf("\033[1;31mKO\n\033[0m", 1, 0);
 	else if (status)
-		ft_printf("Error\n", 2);
+		ft_printf("Error\n", 2, 0);
 	free(ptr);
 	free(values);
 	exit(status);
@@ -66,9 +66,9 @@ void	list_size(t_stack *stack, int measure_a, int measure_b)
 	int		list_size;
 	t_node	*store;
 
-	list_size = 0;
 	if (measure_a)
 	{
+		list_size = 0;
 		store = stack->a;
 		while (store != stack->a || !list_size)
 		{
@@ -77,9 +77,9 @@ void	list_size(t_stack *stack, int measure_a, int measure_b)
 		}
 		stack->size_a = list_size;
 	}
-	list_size = 0;
 	if (measure_b)
 	{
+		list_size = 0;
 		store = stack->b;
 		while (store != stack->b || !list_size)
 		{

@@ -6,14 +6,14 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:43:27 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/04 17:12:18 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/05 00:43:19 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "libft_to_submit/libft.h"
 
 /*****************************************************************************/
 /*								DEFINITIONS									 */
@@ -95,7 +95,8 @@ void	list_size(t_stack *stack, int measure_a, int measure_b);
 //	3 = Characters other than integers detected.
 //	4 = Parameter is outside the range of an type int.
 //	5 = Duplicate parameters detected.
-//	6 = Wrong output detected from the push_swap program.
-//	7 = Instuctions provided do not sort the numbers.
+//	6 = Push_swap detected an error and displayed "Error\n".
+//	7 = Wrong output detected from the push_swap program.
+//	8 = Instuctions provided do not sort the numbers.
 
 #endif

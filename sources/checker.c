@@ -6,11 +6,11 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 13:12:06 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/04 20:09:53 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/06 09:31:12 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	execute_operations(int command, t_stack *stack)
 {
@@ -40,11 +40,16 @@ void	execute_operations(int command, t_stack *stack)
 
 int	check_sort(t_stack stack)
 {
-	while (stack.size_a-- > 1)
+	t_node	*store;
+
+	store = stack.a;
+	while (store)
 	{
-		if (stack.a->value > stack.a->next->value)
+		if (store->value > store->next->value && store->next != stack.a)
 			return (0);
-		stack.a = stack.a->next;
+		if (store->next == stack.a)
+			break ;
+		store = store->next;
 	}
 	return (1);
 }
@@ -52,25 +57,27 @@ int	check_sort(t_stack stack)
 int	main(int ac, char **av)
 {
 	t_stack	stack;
-	char	*line = NULL;
-	char	*diff = NULL;
+	char	*line;
+	char	*diff;
 
+	if (ac == 1)
+		exit(0);
 	line = get_next_line(0);
-	if (ac == 1 || !ft_strncmp(line, "Error\n", 6))
-		call_exit(0, line, NULL);
+	if (!ft_strncmp(line, "Error\n", 6))
+		call_exit(6, line, NULL);
 	stack = parse(--ac, ++av);
 	initialize_the_stack(&stack);
 	while (line)
 	{
-		diff = ft_strnstr(OPERATIONS, line, ft_strlen(line));
+		diff = ft_strnstr(OPERATIONS, line, 3);
 		if (!diff)
-			clear_stack_and_exit(6, line, stack);
+			clear_stack_and_exit(7, line, stack);
 		free(line);
 		execute_operations(OPERATIONS - diff, &stack);
 		line = get_next_line(0);
 	}
-	if (check_sort(stack))
-		clear_stack_and_exit(7, line, stack);
-	ft_printf("OK\n", 1);
+	if (check_sort(stack) || stack.b)
+		clear_stack_and_exit(8, line, stack);
+	ft_printf("\033[1;32mOK\n\033[0m", 1, 0);
 	clear_stack_and_exit(0, line, stack);
 }

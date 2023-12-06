@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 19:05:55 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/30 19:36:20 by mdanish          ###   ########.fr       */
+/*   Created: 2023/07/05 20:56:39 by mdanish           #+#    #+#             */
+/*   Updated: 2023/12/05 15:56:05 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../libft.h"
 
-int	main(int ac, char **av)
+int	ft_strncmp(char const *s1, char const *s2, size_t n)
 {
-	t_stack	stack;
-
-	if (ac == 1)
-		exit(0);
-	stack = parse(--ac, ++av);
-	initialize_the_stack(&stack);
-	if (stack.size_a < 4)
-		sort_three(&stack);
-	else
-		sort(&stack);
-	clear_stack_and_exit(0, NULL, stack);
+	if (!s1)
+		return (1);
+	while (n && *s1 && *s2 && *s1++ == *s2++)
+		n--;
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
