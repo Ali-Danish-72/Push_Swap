@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:47:55 by mdanish           #+#    #+#             */
-/*   Updated: 2023/11/30 19:35:14 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/06 14:25:36 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	initialize_the_stack(t_stack *stack)
 	stack->min_b = INT32_MAX;
 	stack->max_b = INT32_MIN;
 	stack->cheapest_move = 0;
+	stack->print_operations = 1;
 	list_size(stack, 1, 0);
 	find_min(*stack->a, &stack->min_a, stack->size_a);
 	find_max(*stack->a, &stack->max_a, stack->size_a);

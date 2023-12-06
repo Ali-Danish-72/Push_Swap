@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:43:27 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/05 00:43:19 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/06 14:25:10 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_stack
 	int				a_rev_rot;
 	int				b_rot;
 	int				b_rev_rot;
+	int				print_operations;
 }					t_stack;
 
 # define OPERATIONS "sa\n sb\n ss\n ra\n rb\n rr\n rra\n rrb\n rrr\n pa\n pb\n"

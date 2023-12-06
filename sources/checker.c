@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 13:12:06 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/06 09:31:12 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/06 14:26:22 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	main(int ac, char **av)
 		call_exit(6, line, NULL);
 	stack = parse(--ac, ++av);
 	initialize_the_stack(&stack);
+	stack.print_operations = 0;
 	while (line)
 	{
 		diff = ft_strnstr(OPERATIONS, line, 3);

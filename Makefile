@@ -4,7 +4,7 @@
 NAME = push_swap
 BONUS_NAME = checker
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra -g3
 RESET=\033[0m
 RED=\033[1;31m
 GREEN=\033[1;32m

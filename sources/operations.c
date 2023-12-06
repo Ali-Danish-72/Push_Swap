@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:30:27 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/03 16:06:01 by mdanish          ###   ########.fr       */
+/*   Updated: 2023/12/06 14:25:54 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	push(t_stack *stack, char type)
 		stack->a = stack->a->next;
 		push_node(&stack->b, node_to_push);
 	}
-	ft_printf("p%c\n", 1, type);
+	if (stack->print_operations)
+		ft_printf("p%c\n", 1, type);
 }
 
 void	reverse_rotate(t_stack *stack, char type)
@@ -70,7 +71,8 @@ void	reverse_rotate(t_stack *stack, char type)
 		if (stack->b && stack->b != stack->b->prev)
 			stack->b = stack->b->prev;
 	}
-	ft_printf("rr%c\n", 1, type);
+	if (stack->print_operations)
+		ft_printf("rr%c\n", 1, type);
 }
 
 void	rotate(t_stack *stack, char type)
@@ -85,7 +87,8 @@ void	rotate(t_stack *stack, char type)
 		if (stack->b && stack->b != stack->b->next)
 			stack->b = stack->b->next;
 	}
-	ft_printf("r%c\n", 1, type);
+	if (stack->print_operations)
+		ft_printf("r%c\n", 1, type);
 }
 
 void	swap_values(t_stack *stack, char type)
@@ -110,5 +113,6 @@ void	swap_values(t_stack *stack, char type)
 			stack->b->value = store;
 		}
 	}
-	ft_printf("s%c\n", 1, type);
+	if (stack->print_operations)
+		ft_printf("s%c\n", 1, type);
 }
