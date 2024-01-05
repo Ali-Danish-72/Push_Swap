@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 18:29:00 by mdanish           #+#    #+#             */
-/*   Updated: 2023/10/25 10:16:27 by mdanish          ###   ########.fr       */
+/*   Created: 2023/12/05 01:40:45 by mdanish           #+#    #+#             */
+/*   Updated: 2023/12/06 19:51:50 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ char	*get_next_line(int fd)
 {
 	char	*store;
 	char	*line;
+	int		length;
 
-	store = malloc(UINT32_MAX);
+	length = 7;
+	store = malloc(length);
 	if (!store || fd < 0)
 		return (free(store), NULL);
+	while (length--)
+		*(store + length) = 0;
 	line = store;
 	while (read(fd, store, 1) > 0 && *store != '\n')
 		store++;

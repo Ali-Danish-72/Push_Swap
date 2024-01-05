@@ -10,7 +10,7 @@ RED=\033[1;31m
 GREEN=\033[1;32m
 BLUE=\033[1;34m
 CYAN=\033[1;36m
-LIBFT_DIR = ./libft_to_submit/
+LIBFT_DIR = ./libft/
 LIBFT = $(LIBFT_DIR)libft.a
 HEADERS = ./
 SRCS_DIR = ./sources/
@@ -56,7 +56,7 @@ clean:
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@rm -f $(NAME) $(BONUS_NAME)
+	@rm -rf $(NAME) $(BONUS_NAME)
 	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)push_swap.$(RESET)"
 	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)checker.$(RESET)"
 

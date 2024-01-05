@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 13:12:06 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/06 14:26:22 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/01/05 21:21:13 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		exit(0);
 	line = get_next_line(0);
-	if (!ft_strncmp(line, "Error\n", 6))
-		call_exit(6, line, NULL);
+	if (!line)
+		call_exit(6, NULL, NULL);
 	stack = parse(--ac, ++av);
 	initialize_the_stack(&stack);
 	stack.print_operations = 0;
