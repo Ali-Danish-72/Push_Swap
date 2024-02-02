@@ -4,7 +4,7 @@
 NAME = push_swap
 BONUS_NAME = checker
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 RESET=\033[0m
 RED=\033[1;31m
 GREEN=\033[1;32m
@@ -38,7 +38,7 @@ $(NAME): $(OBJS_DIR) $(OBJS_PATH) $(SRCS_DIR)push_swap.c
 
 $(BONUS_NAME): $(OBJS_DIR) $(OBJS_PATH) $(SRCS_DIR)checker.c
 	@make -s -C $(LIBFT_DIR)
-	@$(CC) $(CFLAGS) -c -I $(HEADERS) $(SRCS_DIR)checker.c -o $(OBJS_DIR)checker.o
+	@$(CC) $(CFLAGS) -c -I $(HEADERS) $(SRCS_DIR)checker_bonus.c -o $(OBJS_DIR)checker.o
 	@$(CC) $(CFLAGS) $(BONUS_OBJS_PATH) $(LIBFT) -o $(BONUS_NAME)
 	@echo "$(BLUE)PROGRAM $(GREEN)CREATED: $(CYAN)checker$(RESET)"
 
@@ -57,8 +57,8 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME) $(BONUS_NAME)
-	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)push_swap.$(RESET)"
-	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)checker.$(RESET)"
+	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)push_swap$(RESET)"
+	@echo "$(BLUE)PROGRAM $(RED)DESTROYED: $(CYAN)checker$(RESET)"
 
 re: fclean all
 
