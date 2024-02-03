@@ -14,12 +14,7 @@ LIBFT_DIR = ./libft/
 LIBFT = $(LIBFT_DIR)libft.a
 HEADERS = ./
 SRCS_DIR = ./sources/
-SRCS =	operations.c \
-		parsing.c \
-		sort.c \
-		sort_utils.c \
-		sort_utils_2.c \
-		stack_utils.c
+SRCS = operations.c parsing.c sort.c sort_utils.c sort_utils_2.c stack_utils.c
 SRCS_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS_DIR = ./objects/
 OBJS = $(SRCS:%.c=%.o)
@@ -36,7 +31,7 @@ $(NAME): $(OBJS_DIR) $(OBJS_PATH) $(SRCS_DIR)push_swap.c
 	@$(CC) $(CFLAGS) $(OBJS_PATH) $(LIBFT)  -o $(NAME)
 	@echo "$(BLUE)PROGRAM $(GREEN)CREATED: $(CYAN)push_swap$(RESET)"
 
-$(BONUS_NAME): $(OBJS_DIR) $(OBJS_PATH) $(SRCS_DIR)checker.c
+$(BONUS_NAME): $(OBJS_DIR) $(OBJS_PATH) $(SRCS_DIR)checker_bonus.c
 	@make -s -C $(LIBFT_DIR)
 	@$(CC) $(CFLAGS) -c -I $(HEADERS) $(SRCS_DIR)checker_bonus.c -o $(OBJS_DIR)checker.o
 	@$(CC) $(CFLAGS) $(BONUS_OBJS_PATH) $(LIBFT) -o $(BONUS_NAME)

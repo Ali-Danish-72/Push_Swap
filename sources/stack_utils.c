@@ -6,7 +6,7 @@
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:45:15 by mdanish           #+#    #+#             */
-/*   Updated: 2023/12/05 14:56:07 by mdanish          ###   ########.fr       */
+/*   Updated: 2024/02/03 13:54:27 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	call_exit(int status, void *values, void *ptr)
 {
-	if (status == 8)
+	if (status == 7 || status == 8)
 		ft_printf("\033[1;31mKO\n\033[0m", 1, 0);
 	else if (status)
 		ft_printf("Error\n", 2, 0);
